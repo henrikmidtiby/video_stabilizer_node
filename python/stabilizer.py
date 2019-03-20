@@ -13,10 +13,12 @@ from cv_bridge import CvBridge, CvBridgeError
 class image_converter:
 
   def __init__(self):
+    rospy.init_node('image_converter', anonymous=True)
     self.image_pub = rospy.Publisher("image_topic_2", Image, queue_size=10)
 
     self.bridge = CvBridge()
-    self.image_sub = rospy.Subscriber("/data_provider/image_raw", Image, self.callback)
+    self.image_sub = rospy.Subscriber("image_raw", Image, self.callback)
+
 
   def callback(self, data):
     print("Got data")
@@ -39,7 +41,6 @@ class image_converter:
 
 def main(args):
   ic = image_converter()
-  rospy.init_node('image_converter', anonymous=True)
   try:
     rospy.spin()
   except KeyboardInterrupt:
