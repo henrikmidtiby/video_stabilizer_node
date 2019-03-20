@@ -5,7 +5,8 @@ The node locates four predefined reference points and transforms the image so th
 The location os the four reference points in the initial frame is specied in the constructor to the VideoStabilizer class.
 
 The test.mp4 video that was used to test the package is not part of the git repository.
-It can however be downloaded from youtube on the link [https://youtu.be/UA1zPvjSbjs]
+It can however be downloaded from youtube on the [link](https://youtu.be/UA1zPvjSbjs).
+
 
 ## Getting started
 
@@ -21,7 +22,7 @@ To get the system in a working state, the following steps should be taken.
     git clone git@github.com:henrikmidtiby/video_stabilizer_node.git
     git clone git@github.com:ros-drivers/video_stream_opencv.git
 
-3. Download the youtube video 
+3. Download the youtube video using [youtube-dl](https://pypi.org/project/youtube_dl/)
     
     cd ~/ros_workspace/src/video_stabilizer_node/data
     youtube-dl -o test.mp4 https://youtu.be/UA1zPvjSbjs
