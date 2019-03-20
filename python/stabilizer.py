@@ -2,7 +2,7 @@
 from __future__ import print_function
 
 import roslib
-roslib.load_manifest('video_stabilizer')
+roslib.load_manifest('video_stabilizer_node')
 import sys
 import rospy
 import cv2

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>video_stabilizer</name>
+  <name>video_stabilizer_node</name>
   <version>0.0.1</version>
   <description>The video_stabilizer package</description>
 
