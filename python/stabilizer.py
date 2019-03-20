@@ -85,7 +85,8 @@ class image_converter:
     self.bridge = CvBridge()
     self.image_sub = rospy.Subscriber("image_raw", Image, self.callback)
 
-    self.stabilizer = VideoStabilizer([[273, 167], [200, 508], [749, 565], [1067, 159]])
+    self.stabilizer = VideoStabilizer([[409, 250], [300, 762], [1123, 848],
+        [1600, 238]])
 
 
   def callback(self, data):
