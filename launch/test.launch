@@ -13,7 +13,7 @@
     <remap from="image_raw" to="/data_provider/image_raw" />
   </node>
   <node name="rqt_graph" pkg="rqt_graph" type="rqt_graph" />
-  <node name="image_view2" pkg="rqt_image_view" type="rqt_image_view" args="image:=/analyzed_image" />
+  <node name="image_view_analyzed_image" pkg="rqt_image_view" type="rqt_image_view" args="image:=/analyzed_image" />
 <!-- 
 -->
 </launch>

@@ -26,17 +26,25 @@ class image_converter:
     except CvBridgeError as e:
       print(e)
 
-    (rows,cols,channels) = cv_image.shape
-    if cols > 60 and rows > 60 :
-      cv2.circle(cv_image, (50, 50), 10, 255, 3)
-
-    cv2.imshow("Image window", cv_image)
-    cv2.waitKey(3)
+    cv_image = self.analyze_image(cv_image)
+    self.showImage(cv_image)
 
     try:
       self.image_pub.publish(self.bridge.cv2_to_imgmsg(cv_image, "bgr8"))
     except CvBridgeError as e:
       print(e)
+
+
+  def analyze_image(self, image):
+    (rows, cols, channels) = image.shape
+    if cols > 60 and rows > 60 :
+      cv2.circle(image, (50, 50), 10, 255, 3)
+    return image
+
+
+  def showImage(self, image):
+    cv2.imshow("Image window", image)
+    cv2.waitKey(3)
 
 
 def main(args):
