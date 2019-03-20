@@ -6,6 +6,7 @@ roslib.load_manifest('video_stabilizer')
 import sys
 import rospy
 import cv2
+import numpy as np
 from std_msgs.msg import String
 from sensor_msgs.msg import Image
 from cv_bridge import CvBridge, CvBridgeError
@@ -67,6 +68,12 @@ class VideoStabilizer():
     def correct_small_movements(self, frame):
         for match in self.crop_matches:
             cv2.circle(frame, match, 50, (255, 255, 0), 10)
+
+        pts1 = np.float32(self.crop_matches)
+        pts2 = np.float32(self.crop_locations)
+        M = cv2.getPerspectiveTransform(pts1, pts2)
+        frame = cv2.warpPerspective(frame, M, dsize=(frame.shape[1],
+            frame.shape[0]))
         return frame
 
 
@@ -89,7 +96,7 @@ class image_converter:
       print(e)
 
     cv_image = self.analyze_image(cv_image)
-    # self.showImage(cv_image)
+    self.showImage(cv_image)
 
     try:
       self.image_pub.publish(self.bridge.cv2_to_imgmsg(cv_image, "bgr8"))
