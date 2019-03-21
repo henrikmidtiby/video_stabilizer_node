@@ -30,7 +30,7 @@ git clone git@github.com:ros-drivers/video_stream_opencv.git
     
 ```
 cd ~/ros_workspace/src/video_stabilizer_node/data
-youtube-dl -o test.mp4 https://youtu.be/UA1zPvjSbjs
+youtube-dl -o test.mp4 -f 137 https://youtu.be/UA1zPvjSbjs
 ```
 
 4. Run catkin build
