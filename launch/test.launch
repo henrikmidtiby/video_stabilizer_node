@@ -9,7 +9,8 @@
     <arg name="video_stream_provider" value="$(find video_stabilizer_node)/data/test.mp4" /> 
   </include>
   <node name="image_view" pkg="rqt_image_view" type="rqt_image_view" args="image:=/data_provider/image_raw" />
-  <node name="stabilizer" pkg="video_stabilizer_node" type="stabilizer.py">
+  <node name="stabilizer" pkg="video_stabilizer_node" type="stabilizer.py"
+  output="screen">
     <remap from="image_raw" to="/data_provider/image_raw" />
   </node>
   <node name="rqt_graph" pkg="rqt_graph" type="rqt_graph" />
