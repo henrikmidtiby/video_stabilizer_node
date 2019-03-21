@@ -14,28 +14,38 @@ To get the system in a working state, the following steps should be taken.
 
 1. Make a ROS workspace
 
-    mkdir -p ~/ros_workspace/src
+```
+mkdir -p ~/ros_workspace/src
+```
 
 2. Clone the git repository of the project and its dependencies
 
-    cd ~/ros_workspace/src
-    git clone git@github.com:henrikmidtiby/video_stabilizer_node.git
-    git clone git@github.com:ros-drivers/video_stream_opencv.git
+```
+cd ~/ros_workspace/src
+git clone git@github.com:henrikmidtiby/video_stabilizer_node.git
+git clone git@github.com:ros-drivers/video_stream_opencv.git
+```
 
 3. Download the youtube video using [youtube-dl](https://pypi.org/project/youtube_dl/)
     
-    cd ~/ros_workspace/src/video_stabilizer_node/data
-    youtube-dl -o test.mp4 https://youtu.be/UA1zPvjSbjs
+```
+cd ~/ros_workspace/src/video_stabilizer_node/data
+youtube-dl -o test.mp4 https://youtu.be/UA1zPvjSbjs
+```
 
 4. Run catkin build
 
-    cd ~/ros_workspace
-    source /opt/ros/melodic/setup.bash 
-    catkin build
+```
+cd ~/ros_workspace
+source /opt/ros/melodic/setup.bash 
+catkin build
+```
 
 5. Run the stabilizer, 
-
-    cd ~/ros_workspace
-    source devel/setup.bash
-    roslaunch video_stabilizer_node test.launch
+    
+```
+cd ~/ros_workspace
+source devel/setup.bash
+roslaunch video_stabilizer_node test.launch
+```
 
