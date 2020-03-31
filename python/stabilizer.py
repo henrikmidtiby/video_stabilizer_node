@@ -66,7 +66,7 @@ class VideoStabilizer():
 class image_converter:
   def __init__(self):
     rospy.init_node('image_converter', anonymous=True)
-    self.image_pub = rospy.Publisher("analyzed_image", Image, queue_size=10)
+    self.image_pub = rospy.Publisher("stabilized_frame", Image, queue_size=10)
 
     self.bridge = CvBridge()
     self.image_sub = rospy.Subscriber("image_raw", Image, self.callback)
